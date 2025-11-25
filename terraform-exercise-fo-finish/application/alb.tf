@@ -31,7 +31,7 @@ resource "aws_lb_target_group" "main" {
   name                 = "${local.name}-tg"
   port                 = 80
   vpc_id               = data.aws_vpc.main.id
-  protocol             = "HTTPS"
+  protocol             = "HTTP"
   slow_start           = 0
   target_type          = "ip"
   deregistration_delay = 10
@@ -39,8 +39,8 @@ resource "aws_lb_target_group" "main" {
   health_check {
     path                = "/"
     matcher             = "200-399"
-    timeout             = 30
-    interval            = 15
+    timeout             = 10
+    interval            = 30
     healthy_threshold   = 2
     unhealthy_threshold = 8
   }

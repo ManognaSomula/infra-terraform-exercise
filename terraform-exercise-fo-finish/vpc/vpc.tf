@@ -18,8 +18,11 @@ module "vpc" {
   map_public_ip_on_launch = false
 
   nat_eip_tags = {
-    "accessible" = "private"
+    "accessible" = "public"
   }
+
+enable_nat_gateway = true
+
 
   igw_tags = {
     "Name" = "${var.prefix}-igw"

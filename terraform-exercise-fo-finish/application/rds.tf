@@ -26,9 +26,10 @@ module "rds" {
 
   vpc_security_group_ids = [aws_security_group.rds.id]
 
-  multi_az = false
+  multi_az = true
 
   skip_final_snapshot = true
 
   deletion_protection = false
+
 }

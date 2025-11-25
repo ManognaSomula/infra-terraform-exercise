@@ -55,3 +55,12 @@ variable "cloudwatch_log_group" {
   type        = string
   description = "Cloudwatch log group name for wordpress"
 }
+
+variable "wordpress" {
+  description = "ECS service configuration for the Wordpress task"
+  type = object({
+    cpu           = number
+    memory        = number
+    desired_count = number
+  })
+}
